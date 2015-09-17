@@ -1,0 +1,21 @@
+one              pcomment
+energy test      headline
+4000             nsteps
+25               noutlog
+4000            noutbod
+.046   		dt0
+ 1.0             G
+.TRUE.           selfgrav
+.FALSE.          inptcoef
+.FALSE.           outpcoef
+.FALSE.          zeroodd
+.FALSE.          zeroeven
+.TRUE.           fixacc
+.TRUE.           david
+.FALSE.		 dfric
+.TRUE.           disk
+.FALSE.           flat
+.FALSE.		growing
+.FALSE.		flattening
+10             nsort
+500             ntide

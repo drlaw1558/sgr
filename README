@@ -1,0 +1,30 @@
+BI	line 1	 	nbodies, tnow
+	lines 2-	m,x,y,z,vx,vy,vz
+
+scfltr.f, scfltr.h		fortran code and include file
+			compile using 
+				g77 -O scflr.f -o scfltr
+			run
+				scf
+
+RUNPAR	parameters the simulations were run with
+	line 1		number of sims
+
+	R00?		time in Gyears
+			mass, scale
+			halo rotation
+                        halo axis ratios
+			halo scalelength
+			halo velocity
+			initial x,y,z,vx,vy,vz (in kpc, km/s)
+			accuracy of final position (in kpc and km/s)
+			final x,y,z,vx,vy,vz (in kpc, km/s)
+	 	
+R00?LOG		records average system properties
+			throughout the simulation
+R00?S002	final positions and velocities of all
+			particles
+
+
+SCFPAR
+	other parameters: leave unchanged

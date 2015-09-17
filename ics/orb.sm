@@ -1,0 +1,68 @@
+run
+#	data "Oct04orbits/orb414.dat"
+#	data "Mar08orbits/orb618.dat"
+#	data "PSpace/orb212.dat"
+	data "Runs/orb780.dat"
+#	data "orb.dat"
+#	data "../../density/ics/orb.dat"
+	read{t 1 x 2 y 3 z 4 psi 8 pdot 9 e 10}
+	set r=SQRT(x*x+y*y+z*z)
+#	data "orb.dat"
+	read{t2 1 x2 2 y2 3 z2 4}
+	set r2=SQRT(x2*x2+y2*y2+z2*z2)
+
+	ctype black
+	ptype 4 3
+
+	window 1 2 1 1
+#	lim -10 -6 0 70
+	lim -9 0 0 70
+	box
+	ltype 0
+	ctype red
+	connect t2 r2
+	ctype black
+	connect t r
+	ctype black
+
+	window 1 2 1 2
+	lim -100 100 -100 100
+	box
+	ltype 0 
+	ctype red
+	connect x2 z2 IF(abs(t2)<1.5)
+	ctype black
+	connect x z IF(abs(t)<1.5)
+	relocate -8.5 0 dot
+	ltype 0
+	ctype black
+
+ColoredOrbitPlot
+	data "Runs/orb125.dat"
+	read{t 1 x 2 y 3 z 4}
+	set r=SQRT(x*x+y*y+z*z)
+
+	window 1 1 1 1
+	ctype black
+	lweight 3
+	expand 1.4
+	lim -8.1 0 0 70
+	box
+	xlabel Time (Gyr)
+	ylabel Distance (kpc)
+	ptype 20 3
+	expand 2.0
+	relocate 0 19.9 dot
+	expand 1.0
+	lweight 3
+	ctype dorange
+	connect t r IF((t<0)&&(t>=-1.6))
+	ctype magenta
+	connect t r IF((t<-1.6)&&(t>=-3.72))
+	ctype cyan
+	connect t r IF((t<-3.72)&&(t>=-5.86))
+	ctype green
+	connect t r IF((t<-5.86)&&(t>=-8.01))
+	ctype black
+	lweight 1
+	expand 1.0
